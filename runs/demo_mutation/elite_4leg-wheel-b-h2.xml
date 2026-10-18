@@ -1,0 +1,116 @@
+<mujoco model="hrethink">
+  <compiler angle="degree" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <!-- robot geoms collide only with the environment, not with each other -->
+  <default><geom contype="1" conaffinity="0" condim="3" density="800"/></default>
+  <worldbody>
+    <light pos="0 0 4" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="20 20 0.1" contype="0" conaffinity="1" rgba=".85 .85 .8 1" friction="1.0"/>
+    
+    <body name="pelvis" pos="0 0 0.558">
+      <freejoint name="root"/>
+      <geom name="pelvis" type="box" size="0.275 0.182 0.05" density="500" rgba=".8 .5 .3 1"/>
+      <site name="imu" pos="0 0 0"/>
+      <body name="thigh_fl" pos="0.225 0.162 0">
+        <joint name="hiproll_fl" type="hinge" axis="1 0 0" range="-30.0 30.0" damping="1.0" armature="0.01"/>
+        <joint name="hippitch_fl" type="hinge" axis="0 1 0" range="-120.0 60.0" damping="1.0" armature="0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.253" size="0.035" rgba=".55 .6 .7 1"/>
+        <body name="shin_fl" pos="0 0 -0.253">
+          <joint name="knee_fl" type="hinge" axis="0 1 0" range="-150.0 0.0" damping="1.0" armature="0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.175" size="0.030" rgba=".45 .5 .6 1"/>
+          <body name="wheel_fl" pos="0 0 -0.175">
+            <joint name="wheel_fl" type="hinge" axis="0 1 0" damping="0.05"/>
+            <geom name="foot_fl" type="cylinder" fromto="0 -0.025 0 0 0.025 0" size="0.07" friction="1.5" rgba=".15 .15 .15 1"/>
+          </body>
+        </body>
+      </body>
+      <body name="thigh_fr" pos="0.225 -0.162 0">
+        <joint name="hiproll_fr" type="hinge" axis="1 0 0" range="-30.0 30.0" damping="1.0" armature="0.01"/>
+        <joint name="hippitch_fr" type="hinge" axis="0 1 0" range="-120.0 60.0" damping="1.0" armature="0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.253" size="0.035" rgba=".55 .6 .7 1"/>
+        <body name="shin_fr" pos="0 0 -0.253">
+          <joint name="knee_fr" type="hinge" axis="0 1 0" range="-150.0 0.0" damping="1.0" armature="0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.175" size="0.030" rgba=".45 .5 .6 1"/>
+          <body name="wheel_fr" pos="0 0 -0.175">
+            <joint name="wheel_fr" type="hinge" axis="0 1 0" damping="0.05"/>
+            <geom name="foot_fr" type="cylinder" fromto="0 -0.025 0 0 0.025 0" size="0.07" friction="1.5" rgba=".15 .15 .15 1"/>
+          </body>
+        </body>
+      </body>
+      <body name="thigh_rl" pos="-0.225 0.162 0">
+        <joint name="hiproll_rl" type="hinge" axis="1 0 0" range="-30.0 30.0" damping="1.0" armature="0.01"/>
+        <joint name="hippitch_rl" type="hinge" axis="0 1 0" range="-120.0 60.0" damping="1.0" armature="0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.253" size="0.035" rgba=".55 .6 .7 1"/>
+        <body name="shin_rl" pos="0 0 -0.253">
+          <joint name="knee_rl" type="hinge" axis="0 1 0" range="-150.0 0.0" damping="1.0" armature="0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.175" size="0.030" rgba=".45 .5 .6 1"/>
+          <body name="wheel_rl" pos="0 0 -0.175">
+            <joint name="wheel_rl" type="hinge" axis="0 1 0" damping="0.05"/>
+            <geom name="foot_rl" type="cylinder" fromto="0 -0.025 0 0 0.025 0" size="0.07" friction="1.5" rgba=".15 .15 .15 1"/>
+          </body>
+        </body>
+      </body>
+      <body name="thigh_rr" pos="-0.225 -0.162 0">
+        <joint name="hiproll_rr" type="hinge" axis="1 0 0" range="-30.0 30.0" damping="1.0" armature="0.01"/>
+        <joint name="hippitch_rr" type="hinge" axis="0 1 0" range="-120.0 60.0" damping="1.0" armature="0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.253" size="0.035" rgba=".55 .6 .7 1"/>
+        <body name="shin_rr" pos="0 0 -0.253">
+          <joint name="knee_rr" type="hinge" axis="0 1 0" range="-150.0 0.0" damping="1.0" armature="0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.175" size="0.030" rgba=".45 .5 .6 1"/>
+          <body name="wheel_rr" pos="0 0 -0.175">
+            <joint name="wheel_rr" type="hinge" axis="0 1 0" damping="0.05"/>
+            <geom name="foot_rr" type="cylinder" fromto="0 -0.025 0 0 0.025 0" size="0.07" friction="1.5" rgba=".15 .15 .15 1"/>
+          </body>
+        </body>
+      </body>
+      <body name="chest" pos="0.195 0 0.05">
+        
+        <geom type="box" pos="0 0 0.126" size="0.09 0.162 0.126" density="350" rgba=".8 .5 .3 1"/>
+        <geom type="sphere" pos="0 0 0.353" size="0.09" density="400" rgba=".9 .9 .9 1"/>
+        <body name="uparm_l" pos="0 0.222 0.227">
+          <joint name="shoulder_l" type="hinge" axis="0 1 0" range="-180.0 60.0" damping="1.0" armature="0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.250" size="0.03" rgba=".6 .65 .75 1"/>
+          <body name="forearm_l" pos="0 0 -0.250">
+            <joint name="elbow_l" type="hinge" axis="0 1 0" range="-150.0 0.0" damping="1.0" armature="0.01"/>
+            <geom type="capsule" fromto="0 0 0 0 0 -0.250" size="0.025" rgba=".6 .65 .75 1"/>
+          </body>
+        </body>
+        <body name="uparm_r" pos="0 -0.222 0.227">
+          <joint name="shoulder_r" type="hinge" axis="0 1 0" range="-180.0 60.0" damping="1.0" armature="0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.250" size="0.03" rgba=".6 .65 .75 1"/>
+          <body name="forearm_r" pos="0 0 -0.250">
+            <joint name="elbow_r" type="hinge" axis="0 1 0" range="-150.0 0.0" damping="1.0" armature="0.01"/>
+            <geom type="capsule" fromto="0 0 0 0 0 -0.250" size="0.025" rgba=".6 .65 .75 1"/>
+          </body>
+        </body>
+      </body>
+      <body name="tail" pos="-0.275 0 0">
+        <joint name="tail" type="hinge" axis="0 1 0" range="-60.0 60.0" damping="1.0" armature="0.01"/>
+        <geom type="capsule" fromto="0 0 0 -0.045 0 0.05" size="0.025" density="600" rgba=".7 .6 .5 1"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="hiproll_fl" joint="hiproll_fl" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="hippitch_fl" joint="hippitch_fl" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="knee_fl" joint="knee_fl" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <velocity name="wheel_fl" joint="wheel_fl" kv="4" ctrlrange="-25 25" forcelimited="true" forcerange="-29.0 29.0"/>
+    <position name="hiproll_fr" joint="hiproll_fr" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="hippitch_fr" joint="hippitch_fr" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="knee_fr" joint="knee_fr" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <velocity name="wheel_fr" joint="wheel_fr" kv="4" ctrlrange="-25 25" forcelimited="true" forcerange="-29.0 29.0"/>
+    <position name="hiproll_rl" joint="hiproll_rl" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="hippitch_rl" joint="hippitch_rl" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="knee_rl" joint="knee_rl" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <velocity name="wheel_rl" joint="wheel_rl" kv="4" ctrlrange="-25 25" forcelimited="true" forcerange="-29.0 29.0"/>
+    <position name="hiproll_rr" joint="hiproll_rr" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="hippitch_rr" joint="hippitch_rr" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="knee_rr" joint="knee_rr" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <velocity name="wheel_rr" joint="wheel_rr" kv="4" ctrlrange="-25 25" forcelimited="true" forcerange="-29.0 29.0"/>
+    <position name="shoulder_l" joint="shoulder_l" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="elbow_l" joint="elbow_l" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="shoulder_r" joint="shoulder_r" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="elbow_r" joint="elbow_r" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+    <position name="tail" joint="tail" kp="232.1" kv="5.80" inheritrange="1" forcelimited="true" forcerange="-116.0 116.0"/>
+  </actuator>
+</mujoco>

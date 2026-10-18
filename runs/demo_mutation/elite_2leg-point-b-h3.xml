@@ -1,0 +1,55 @@
+<mujoco model="hrethink">
+  <compiler angle="degree" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <!-- robot geoms collide only with the environment, not with each other -->
+  <default><geom contype="1" conaffinity="0" condim="3" density="800"/></default>
+  <worldbody>
+    <light pos="0 0 4" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="20 20 0.1" contype="0" conaffinity="1" rgba=".85 .85 .8 1" friction="1.0"/>
+    
+    <body name="pelvis" pos="0 0 0.735">
+      <freejoint name="root"/>
+      <geom name="pelvis" type="box" size="0.125 0.150 0.05" density="500" rgba=".8 .5 .3 1"/>
+      <site name="imu" pos="0 0 0"/>
+      <body name="thigh_l" pos="0.000 0.130 0">
+        <joint name="hiproll_l" type="hinge" axis="1 0 0" range="-30.0 30.0" damping="1.0" armature="0.01"/>
+        <joint name="hippitch_l" type="hinge" axis="0 1 0" range="-120.0 60.0" damping="1.0" armature="0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.320" size="0.035" rgba=".55 .6 .7 1"/>
+        <body name="shin_l" pos="0 0 -0.320">
+          <joint name="knee_l" type="hinge" axis="0 1 0" range="-150.0 0.0" damping="1.0" armature="0.01" stiffness="60.000" springref="0"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.320" size="0.030" rgba=".45 .5 .6 1"/>
+          <geom name="foot_l" type="sphere" pos="0 0 -0.320" size="0.035" friction="1.2" rgba=".2 .2 .2 1"/>
+        </body>
+      </body>
+      <body name="thigh_r" pos="0.000 -0.130 0">
+        <joint name="hiproll_r" type="hinge" axis="1 0 0" range="-30.0 30.0" damping="1.0" armature="0.01"/>
+        <joint name="hippitch_r" type="hinge" axis="0 1 0" range="-120.0 60.0" damping="1.0" armature="0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.320" size="0.035" rgba=".55 .6 .7 1"/>
+        <body name="shin_r" pos="0 0 -0.320">
+          <joint name="knee_r" type="hinge" axis="0 1 0" range="-150.0 0.0" damping="1.0" armature="0.01" stiffness="60.000" springref="0"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.320" size="0.030" rgba=".45 .5 .6 1"/>
+          <geom name="foot_r" type="sphere" pos="0 0 -0.320" size="0.035" friction="1.2" rgba=".2 .2 .2 1"/>
+        </body>
+      </body>
+      <body name="chest" pos="0.000 0 0.05">
+        <joint name="spine" type="hinge" axis="0 1 0" range="-40.0 40.0" damping="1.0" armature="0.01" stiffness="20.000" springref="0"/>
+        <geom type="box" pos="0 0 0.175" size="0.09 0.130 0.175" density="350" rgba=".8 .5 .3 1"/>
+        <geom type="sphere" pos="0 0 0.450" size="0.09" density="400" rgba=".9 .9 .9 1"/>
+      </body>
+      <body name="tail" pos="-0.125 0 0">
+        <joint name="tail" type="hinge" axis="0 1 0" range="-60.0 60.0" damping="1.0" armature="0.01"/>
+        <geom type="capsule" fromto="0 0 0 -0.400 0 0.05" size="0.025" density="600" rgba=".7 .6 .5 1"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="hiproll_l" joint="hiproll_l" kp="160.0" kv="4.00" inheritrange="1" forcelimited="true" forcerange="-80.0 80.0"/>
+    <position name="hippitch_l" joint="hippitch_l" kp="160.0" kv="4.00" inheritrange="1" forcelimited="true" forcerange="-80.0 80.0"/>
+    <position name="knee_l" joint="knee_l" kp="160.0" kv="4.00" inheritrange="1" forcelimited="true" forcerange="-80.0 80.0"/>
+    <position name="hiproll_r" joint="hiproll_r" kp="160.0" kv="4.00" inheritrange="1" forcelimited="true" forcerange="-80.0 80.0"/>
+    <position name="hippitch_r" joint="hippitch_r" kp="160.0" kv="4.00" inheritrange="1" forcelimited="true" forcerange="-80.0 80.0"/>
+    <position name="knee_r" joint="knee_r" kp="160.0" kv="4.00" inheritrange="1" forcelimited="true" forcerange="-80.0 80.0"/>
+    <position name="spine" joint="spine" kp="160.0" kv="4.00" inheritrange="1" forcelimited="true" forcerange="-80.0 80.0"/>
+    <position name="tail" joint="tail" kp="160.0" kv="4.00" inheritrange="1" forcelimited="true" forcerange="-80.0 80.0"/>
+  </actuator>
+</mujoco>
