@@ -70,3 +70,14 @@ Outputs per run: `history.jsonl` (every design, hypothesis, metrics), `lessons.m
 
 See [`docs/RESEARCH.md`](docs/RESEARCH.md) for the landscape survey (simulators, agentic AI in
 robotics, competitions with deadlines, what has been tried, and adjacent-field ideas).
+
+## Results so far
+
+| Run | Proposer | Designs | Best score | Best rubble speed | Best body |
+| --- | --- | --- | --- | --- | --- |
+| `runs/demo_mutation` | random mutation | 4 seeds + 30 | 0.86 | 0.10 m/s | 4 wheels, humanoid torso |
+| `runs/llm_v1` | Claude (`claude-opus-5-5`), reflect every 5 | 4 seeds + 20 | 1.48 | 1.33 m/s | 4 wheels on a long (0.8 m), wide (0.45 m) base, low chest, short arms, backward knees with springs |
+
+Caveats Claude itself wrote into `runs/llm_v1/lessons.md`: near-identical genomes can score very
+differently on rubble, so wins need replicate seeds; `foot_len` has no effect on wheeled feet; the best
+body sits at the edge of the pelvis length and width ranges, so the ranges should widen.

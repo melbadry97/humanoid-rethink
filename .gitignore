@@ -2,5 +2,6 @@ __pycache__/
 *.egg-info/
 runs/*
 !runs/demo_mutation/
-runs/demo_mutation/ctrl_*.npy
+!runs/llm_v1/
+runs/*/ctrl_*.npy
 .venv/

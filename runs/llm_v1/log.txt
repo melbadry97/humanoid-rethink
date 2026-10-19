@@ -1,0 +1,25 @@
+[  0] score=+0.034 flat=0.08m/s rough=0.08m/s push=fell CoT=0.28 cell=2leg-flat-f-h3  seed: baseline_humanoid
+[  1] score=-0.209 flat=-0.02m/s rough=-0.02m/s push=fell CoT=10.00 cell=2leg-point-b-h3  seed: digitigrade_runner
+[  2] score=-0.200 flat=0.00m/s rough=0.00m/s push=ok CoT=10.00 cell=2leg-wheel-f-h3  seed: wheel_legged
+[  3] score=-0.007 flat=0.05m/s rough=0.05m/s push=fell CoT=1.48 cell=4leg-point-f-h2  seed: centaur
+[  4] score=+0.419 flat=1.66m/s rough=0.03m/s push=fell CoT=0.26 cell=4leg-wheel-b-h2  A statically stable four-wheeled centaur base (wide 0.40 m track, shor
+[  5] score=+0.841 flat=1.62m/s rough=0.07m/s push=ok CoT=0.21 cell=4leg-wheel-b-h2  Widening the four-wheeled centaur's track to 0.45 m, lengthening its w
+[  6] score=+0.418 flat=1.62m/s rough=0.07m/s push=fell CoT=0.21 cell=4leg-wheel-b-h2  Lengthening child 5's legs from 0.17 to 0.23 m should raise ground cle
+[  7] score=+0.892 flat=1.62m/s rough=0.18m/s push=ok CoT=0.21 cell=4leg-wheel-b-h2  Changing only child 5's foot_len from 0.18 to 0.30 m should raise roug
+[  8] score=+0.831 flat=1.62m/s rough=0.05m/s push=ok CoT=0.21 cell=4leg-wheel-b-h2  Enabling an actuated spine pitch joint (with a 80 Nm/rad passive sprin
+[  9] score=+0.983 flat=1.62m/s rough=0.36m/s push=ok CoT=0.21 cell=4leg-wheel-b-h2  Changing only run 7's knee_spring from 90 to 50 Nm/rad should raise ro
+[ 10] score=+0.423 flat=1.62m/s rough=0.09m/s push=fell CoT=0.22 cell=4leg-wheel-b-h2  Changing only run 9's knee_spring from 50 to 20 Nm/rad should raise ro
+[ 11] score=+0.422 flat=1.62m/s rough=0.09m/s push=fell CoT=0.21 cell=4leg-wheel-f-h2  Changing only run 9's knee_dir from backward to forward should raise r
+[ 12] score=+0.419 flat=1.62m/s rough=0.07m/s push=fell CoT=0.22 cell=4leg-wheel-b-h2  Changing only run 9's knee_spring from 50 to 40 Nm/rad should raise ro
+[ 13] score=+1.083 flat=1.62m/s rough=0.56m/s push=ok CoT=0.22 cell=4leg-wheel-b-h2  Changing only run 9's knee_spring from 50 to 60 Nm/rad should keep rou
+[ 14] score=+0.829 flat=1.62m/s rough=0.05m/s push=ok CoT=0.21 cell=4leg-wheel-b-h2  Changing only run 13's knee_spring from 60 to 70 Nm/rad should raise r
+[ 15] score=+0.834 flat=1.62m/s rough=0.06m/s push=ok CoT=0.22 cell=4leg-wheel-b-h2  Changing only run 13's ankle_spring from 0 to 30 Nm/rad should raise r
+[ 16] score=+0.862 flat=1.62m/s rough=0.11m/s push=ok CoT=0.21 cell=4leg-wheel-b-h2  Changing only run 13's knee_spring from 60 to 55 Nm/rad, between two s
+[ 17] score=+0.851 flat=1.62m/s rough=0.09m/s push=ok CoT=0.22 cell=4leg-wheel-b-h2  Changing only run 13's max_torque from 120 to 150 Nm should raise roug
+[ 18] score=+0.876 flat=1.62m/s rough=0.14m/s push=ok CoT=0.22 cell=4leg-wheel-b-h2  Adding only a short 0.25 m actuated tail to run 13 should raise rough-
+[ 19] score=+0.840 flat=1.62m/s rough=0.07m/s push=ok CoT=0.21 cell=4leg-wheel-b-h2  A near-exact replicate of run 13, changing only knee_spring from 60 to
+[ 20] score=+0.428 flat=1.62m/s rough=0.10m/s push=fell CoT=0.21 cell=4leg-wheel-b-h2  A 'high-clearance, long-wheelbase' package on run 13's chassis should 
+[ 21] score=+1.097 flat=1.63m/s rough=0.58m/s push=ok CoT=0.21 cell=4leg-wheel-b-h1  Run 20's package without its longer shins (shins back to 0.17 m, keepi
+[ 22] score=+1.475 flat=1.63m/s rough=1.33m/s push=ok CoT=0.21 cell=4leg-wheel-b-h1  A near-exact replicate of run 21 (0.8 m wheelbase, 0.25 m chest, 0.3 m
+[ 23] score=+1.282 flat=1.63m/s rough=0.95m/s push=ok CoT=0.22 cell=4leg-wheel-b-h1  Lowering only run 22's chest_height from 0.25 to 0.20 m (spring back t
+best #22 score=+1.475: A near-exact replicate of run 21 (0.8 m wheelbase, 0.25 m chest, 0.3 m arms, 0.17 m legs), changing only knee_spring from 60 to 61 Nm/rad, should again give rough speed above 0.3 m/s, with flat speed near 1.62 m/s and a survived shove. That would confirm that the longer wheelbase and lower, lighter upper body are a real rough-terrain lever. A result below 0.2 m/s would mark run 21's 0.576 m/s as a lucky draw like run 13, since run 13's own replicate (run 19) fell to 0.071.
